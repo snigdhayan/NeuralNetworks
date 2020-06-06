@@ -25,4 +25,4 @@ output_features:
 
 training:
         batch_size: 64
-        epochs: 400
+        epochs: 80
