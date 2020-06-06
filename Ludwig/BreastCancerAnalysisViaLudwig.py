@@ -1,22 +1,21 @@
 # coding: utf-8
 
-from ludwig.api import LudwigModel
-from sklearn.model_selection import train_test_split
+# Read data from local directory
 import pandas as pd
 
-# Read data from local directory
 cancer_dataset = pd.read_csv('./breast_cancer_dataset.csv')
 
 # Split data for training and testing
+from sklearn.model_selection import train_test_split
 
 split = 0.3
 cancer_dataset_train, cancer_dataset_test = train_test_split(
     cancer_dataset, test_size=split)
 # X_train, Y_train = cancer_dataset_train.drop(columns='label'), cancer_dataset_train['label']
-X_test, Y_test = cancer_dataset_test.drop(
-    columns='label'), cancer_dataset_test['label']
+X_test, Y_test = cancer_dataset_test.drop(columns='label'), cancer_dataset_test['label']
 
 # Train locally defined Ludwig model
+from ludwig.api import LudwigModel
 
 model = LudwigModel(model_definition_file='./LudwigModelDefinitionFile.yml')
 train_stats = model.train(data_df=cancer_dataset_train,
@@ -27,6 +26,7 @@ train_stats = model.train(data_df=cancer_dataset_train,
                           skip_save_log=True, 
                           skip_save_progress=True)
 
+# Visualize training statistics
 from ludwig.visualize import learning_curves
 
 learning_curves(train_stats, output_feature_name='label')
