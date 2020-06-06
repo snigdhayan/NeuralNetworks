@@ -27,6 +27,10 @@ train_stats = model.train(data_df=cancer_dataset_train,
                           skip_save_log=True, 
                           skip_save_progress=True)
 
+from ludwig.visualize import learning_curves
+
+learning_curves(train_stats, output_feature_name='label')
+
 # Predict and print statistics
 pred = model.predict(data_df=X_test)
 predictions = pred['label_predictions']
