@@ -1,0 +1,28 @@
+input_features:
+    -
+        name: worst_concave_points
+        type: numerical
+        encoder: cnn
+        preprocessing:
+            normalization_strategy: standardscaler
+    -
+        name: worst_perimeter
+        type: numerical
+        encoder: cnn
+        preprocessing:
+            normalization_strategy: standardscaler
+    -
+        name: mean_concave_points
+        type: numerical
+        encoder: cnn
+        preprocessing:
+            normalization_strategy: standardscaler
+ 
+output_features:
+    -
+        name: label
+        type: binary
+
+training:
+        batch_size: 64
+        epochs: 400
