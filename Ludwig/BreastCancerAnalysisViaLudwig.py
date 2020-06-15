@@ -2,6 +2,7 @@
 
 # Read data from local directory
 import pandas as pd
+import time
 
 cancer_dataset = pd.read_csv('./breast_cancer_dataset.csv')
 
@@ -16,6 +17,7 @@ X_test, Y_test = cancer_dataset_test.drop(columns='label'), cancer_dataset_test[
 # Train locally defined Ludwig model
 from ludwig.api import LudwigModel
 
+start_time = time.time()
 model = LudwigModel(model_definition_file='./LudwigModelDefinitionFile.yml')
 train_stats = model.train(data_df=cancer_dataset_train,
                           skip_save_model=True, 
@@ -24,6 +26,7 @@ train_stats = model.train(data_df=cancer_dataset_train,
                           skip_save_training_description=True, 
                           skip_save_log=True, 
                           skip_save_progress=True)
+training_time = time.time() - start_time
 
 # Visualize training statistics
 from ludwig.visualize import learning_curves
@@ -41,5 +44,6 @@ for i in range(1, len(Y_test)):
 
 print("No. of correct predictions = {}".format(sum(pred_correct)))
 print("No. of incorrect predictions = {}".format(len(Y_test)-sum(pred_correct)))
+print("Training time = {} seconds".format(round(training_time,2)))
 
 model.close()
