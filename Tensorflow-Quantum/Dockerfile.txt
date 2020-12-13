@@ -1,0 +1,11 @@
+FROM tensorflow/tensorflow:latest-jupyter
+
+LABEL creator "Snigdhayan Mahanta"
+
+WORKDIR /Users/ibatu/Documents/MyProgramsWindows/Python/NeuralNetworks/Tensorflow-Quantum
+
+RUN pip3 install --upgrade pip
+RUN pip3 install -U tensorflow-quantum
+RUN pip3 install seaborn
+RUN pip3 install matplotlib
+RUN pip3 install cirq
