@@ -1,6 +1,7 @@
 FROM tensorflow/tensorflow:latest-jupyter
 
-LABEL creator "Snigdhayan Mahanta"
+LABEL creator="Snigdhayan Mahanta"
+LABEL purpose="Quantum Computing Workshop"
 
 WORKDIR /Users/ibatu/Documents/MyProgramsWindows/Python/NeuralNetworks/Tensorflow-Quantum
 
