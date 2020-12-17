@@ -5,8 +5,9 @@ LABEL purpose="Quantum Computing Workshop"
 
 WORKDIR /Users/ibatu/Documents/MyProgramsWindows/Python/NeuralNetworks/Tensorflow-Quantum
 
-RUN pip3 install --upgrade pip
+RUN pip3 install -U pip
+RUN pip3 install -q tensorflow==2.3.1
 RUN pip3 install -U tensorflow-quantum
-RUN pip3 install seaborn
-RUN pip3 install matplotlib
-RUN pip3 install cirq
+RUN pip3 install -U seaborn
+RUN pip3 install -U matplotlib
+RUN pip3 install -U cirq
