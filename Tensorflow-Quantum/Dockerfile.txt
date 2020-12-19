@@ -1,6 +1,7 @@
 FROM tensorflow/tensorflow:latest-jupyter
 
-LABEL purpose="Quantum Computing Workshop"
+LABEL name="Container with Jupyter, Tensorflow-Quantum and Cirq"
+LABEL description="This container will be used by every participant of the Quantum Computing Hackathon."
 
 WORKDIR /Python/NeuralNetworks/Tensorflow-Quantum
 
