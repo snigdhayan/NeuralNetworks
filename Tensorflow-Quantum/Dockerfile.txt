@@ -1,12 +1,14 @@
-FROM tensorflow/tensorflow:latest-jupyter
+FROM jupyter/datascience-notebook:latest
 
 LABEL name="Container with Jupyter, Tensorflow-Quantum and Cirq"
 LABEL description="This container will be used by every participant of the Quantum Computing Hackathon."
 
-WORKDIR /Python/NeuralNetworks/Tensorflow-Quantum
+WORKDIR /Tensorflow-Quantum
+
+COPY ./breast_cancer_dataset.csv .
 
 RUN pip3 install -U pip
-RUN pip3 install -q tensorflow==2.3.1
+RUN pip3 install tensorflow==2.3.1
 RUN pip3 install -U tensorflow-quantum
 RUN pip3 install -U seaborn
 RUN pip3 install -U matplotlib
