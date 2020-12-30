@@ -1,7 +1,7 @@
 FROM jupyter/datascience-notebook:latest
 
-LABEL name="Container with Jupyter, Tensorflow-Quantum and Cirq"
-LABEL description="This container will be used by every participant of the Quantum Computing Hackathon."
+LABEL name="Container image with Jupyter, Tensorflow, Tensorflow-Quantum and Cirq"
+LABEL description="This container image will be used by every participant of the Quantum Computing Hackathon."
 
 WORKDIR /Tensorflow-Quantum
 
