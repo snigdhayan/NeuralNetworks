@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:latest
+FROM jupyter/minimal-notebook:latest
 
 LABEL name="Container image with Jupyter, Tensorflow, Tensorflow-Quantum and Cirq"
 LABEL description="This container image will be used by every participant of the Quantum Computing Hackathon."
@@ -13,3 +13,6 @@ RUN pip3 install -U tensorflow-quantum
 RUN pip3 install -U seaborn
 RUN pip3 install -U matplotlib
 RUN pip3 install -U cirq
+
+EXPOSE 8888
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
