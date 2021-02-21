@@ -4,22 +4,22 @@
 import pandas as pd
 import time
 
-cancer_dataset = pd.read_csv('./breast_cancer_dataset.csv')
+breast_cancer_dataset = pd.read_csv('./breast_cancer_dataset.csv')
 
 # Split data for training and testing
 from sklearn.model_selection import train_test_split
 
 split = 0.3
-cancer_dataset_train, cancer_dataset_test = train_test_split(cancer_dataset, test_size=split)
-# X_train, Y_train = cancer_dataset_train.drop(columns='label'), cancer_dataset_train['label']
-X_test, Y_test = cancer_dataset_test.drop(columns='label'), cancer_dataset_test['label']
+breast_cancer_dataset_train, breast_cancer_dataset_test = train_test_split(breast_cancer_dataset, test_size=split)
+# X_train, Y_train = breast_cancer_dataset_train.drop(columns='label'), breast_cancer_dataset_train['label']
+X_test, Y_test = breast_cancer_dataset_test.drop(columns='label'), breast_cancer_dataset_test['label']
 
 # Train locally defined Ludwig model
 from ludwig.api import LudwigModel
 
 start_time = time.time()
 model = LudwigModel(model_definition_file='./LudwigModelDefinitionFile.yml')
-train_stats = model.train(data_df=cancer_dataset_train,
+train_stats = model.train(data_df=breast_cancer_dataset_train,
                           skip_save_model=True, 
                           skip_save_processed_input=True, 
                           skip_save_training_statistics=True, 
