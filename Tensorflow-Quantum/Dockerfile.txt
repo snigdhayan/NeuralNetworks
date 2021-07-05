@@ -2,7 +2,7 @@
 FROM jupyter/minimal-notebook:python-3.8.8
 
 # image description
-LABEL name="Container image with Jupyter Notebook and Tensorflow Quantum"
+LABEL name="Container image with Jupyter Notebook, Cirq and Tensorflow Quantum"
 
 # set the working directory in the container
 WORKDIR /MyTFQ
