@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Docker build and run
-
 docker build -f ./Dockerfile.txt -t mytfq .
 
-docker run -it -p 8888:8888 mytfq
+docker run -t -d -p 8888:8888 --name mytfq mytfq
 
-# Docker clean up
+docker exec -it mytfq jupyter notebook --no-browser --ip=0.0.0.0 --allow-root --port=8888
 
 # docker system prune -a -f
