@@ -2,21 +2,21 @@ input_features:
     -
         name: worst_concave_points
         type: numerical
-        encoder: cnn
+        encoder: dense
         preprocessing:
-            normalization_strategy: standardscaler
+            normalization: zscore
     -
         name: worst_perimeter
         type: numerical
-        encoder: cnn
+        encoder: dense
         preprocessing:
-            normalization_strategy: standardscaler
+            normalization: zscore
     -
         name: mean_concave_points
         type: numerical
-        encoder: cnn
+        encoder: dense
         preprocessing:
-            normalization_strategy: standardscaler
+            normalization: zscore
  
 output_features:
     -
