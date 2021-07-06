@@ -2,7 +2,7 @@
 FROM python:3.6.14-slim-buster
 
 # image description
-LABEL name="Container image with Jupyter and Ludwig"
+LABEL name="Container image with Jupyter Notebook and Ludwig"
 
 # set the working directory in the container
 WORKDIR /MyLudwig
