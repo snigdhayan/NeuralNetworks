@@ -1,4 +1,4 @@
-tensorflow==2.4.1
+tensorflow==2.5.1
 tensorflow-quantum==0.5.1
 cirq==0.11.0
 matplotlib==3.3.4
