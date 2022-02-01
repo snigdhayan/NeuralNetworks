@@ -1,5 +1,4 @@
 matplotlib==3.3.4
 seaborn==0.11.0
-tensorflow==1.15.3
-ludwig==0.2.2.8
+ludwig==0.4.1
 jupyter
