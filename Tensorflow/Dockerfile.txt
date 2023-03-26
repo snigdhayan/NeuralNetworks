@@ -1,0 +1,22 @@
+# set base image
+FROM jupyter/tensorflow-notebook:tensorflow-2.11.0
+
+# image description
+LABEL name="Container image with Jupyter Notebook and Tensorflow"
+
+# set the working directory in the container
+WORKDIR /MyTF
+
+# copy the dependencies file to the working directory
+COPY requirements.txt .
+
+# install dependencies
+RUN pip3 install -U pip
+RUN pip3 install -r requirements.txt
+
+# copy a local directory into the container
+COPY ./MyTF ./MyTF
+
+# Prepare jupyter notebook
+EXPOSE 8888
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--allow-root", "--ip=0.0.0.0"]
