@@ -16,3 +16,7 @@ RUN pip3 install -r requirements.txt
 
 # copy a local directory into the container
 COPY ./MyTFQ ./MyTFQ
+
+# Prepare jupyter notebook
+EXPOSE 8888
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--allow-root", "--ip=0.0.0.0"]
